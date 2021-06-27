@@ -183,6 +183,7 @@ public class Finance {
 		lblAdCost.setFont(new Font("Roboto", Font.BOLD, 22));
 
 		txtInsurance = new JTextField();
+		txtInsurance.setText("0");
 		txtInsurance.setForeground(Color.BLACK);
 		txtInsurance.setFont(new Font("Roboto", Font.PLAIN, 22));
 		txtInsurance.setColumns(10);
@@ -190,6 +191,7 @@ public class Finance {
 		panel_1.add(txtInsurance);
 
 		txtRent = new JTextField();
+		txtRent.setText("0");
 		txtRent.setForeground(Color.BLACK);
 		txtRent.setFont(new Font("Roboto", Font.PLAIN, 22));
 		txtRent.setColumns(10);
@@ -197,6 +199,7 @@ public class Finance {
 		panel_1.add(txtRent);
 
 		txtInventoryCost = new JTextField();
+		txtInventoryCost.setText("0");
 		txtInventoryCost.setForeground(Color.BLACK);
 		txtInventoryCost.setFont(new Font("Roboto", Font.PLAIN, 22));
 		txtInventoryCost.setColumns(10);
@@ -204,6 +207,7 @@ public class Finance {
 		panel_1.add(txtInventoryCost);
 
 		txtAdCost = new JTextField();
+		txtAdCost.setText("0");
 		txtAdCost.setForeground(Color.BLACK);
 		txtAdCost.setFont(new Font("Roboto", Font.PLAIN, 22));
 		txtAdCost.setColumns(10);
@@ -249,7 +253,6 @@ public class Finance {
 		panel.add(btnReset);
 		btnReset.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				txtSales.setText("");
 				txtInsurance.setText("");
 				txtRent.setText("");
 				txtInventoryCost.setText("");
@@ -266,19 +269,22 @@ public class Finance {
 		panel.add(btnCalculate);
 		btnCalculate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				double totalExpenses = Integer.parseInt(txtInsurance.getText()) + Integer.parseInt(txtRent.getText())
-						+ Integer.parseInt(txtInventoryCost.getText()) + Integer.parseInt(txtAdCost.getText());
+				double totalExpenses = Double.parseDouble(txtInsurance.getText())
+						+ Double.parseDouble(txtRent.getText()) + Double.parseDouble(txtInventoryCost.getText())
+						+ Double.parseDouble(txtAdCost.getText());
 
-				double netIncome = Integer.parseInt(txtSales.getText()) - totalExpenses;
+				double netIncome = Double.parseDouble(txtSales.getText()) - totalExpenses;
 
 				Report.setText("================================================="
-						+ "\n\t          Financial Report for Grocery Store" + "\n================================================="
-						+ "\nIncome" + "\n\tSales\t\t: RM" + txtSales.getText() + "\n(+)Total Income\t\t\t: RM" + txtSales.getText() + "\nExpenses"
+						+ "\n\t          Financial Report for Grocery Store"
+						+ "\n=================================================" + "\nIncome" + "\n\tSales\t\t: RM"
+						+ txtSales.getText() + "\n(+)Total Income\t\t\t: RM" + txtSales.getText() + "\nExpenses"
 						+ "\n\tInsurance\t\t: RM" + txtInsurance.getText() + "\n\tRent\t\t: RM" + txtRent.getText()
 						+ "\n\tInventory Cost\t\t: RM" + txtInventoryCost.getText() + "\n\tAdvertisement Cost\t: RM"
-						+ txtAdCost.getText() + "\n\tSalary Expenses\t\t: RM" + txtSalaryExpenses.getText() +"\n(-)Total Expenses\t\t\t: RM"
-						+ totalExpenses + "\n================================================="
-						+ "\nNet Income\t\t\t: RM" + netIncome + "\n=================================================");
+						+ txtAdCost.getText() + "\n\tSalary Expenses\t\t: RM" + txtSalaryExpenses.getText()
+						+ "\n(-)Total Expenses\t\t\t: RM" + totalExpenses
+						+ "\n=================================================" + "\nNet Income\t\t\t: "
+						+ String.format("RM%.2f", netIncome) + "\n=================================================");
 			}
 		});
 		btnCalculate.setForeground(Color.BLACK);
@@ -300,7 +306,7 @@ public class Finance {
 		lblSales.setFont(new Font("Roboto", Font.BOLD, 22));
 
 		txtSales = new JTextField();
-		txtSales.setText(Sales.getGrandTotal());
+		txtSales.setText(String.valueOf(Sales.getTotalSales()));
 		txtSales.setBounds(254, 20, 185, 30);
 		panel_1_1.add(txtSales);
 		txtSales.setForeground(Color.BLACK);

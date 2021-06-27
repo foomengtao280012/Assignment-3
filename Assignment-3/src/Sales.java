@@ -32,7 +32,7 @@ public class Sales {
 	private JCheckBox chckbxDelivery;
 
 	private JTextField txtDistance;
-	private static String grandTotal;
+	private static double totalSales;
 
 	/**
 	 * Launch the application.
@@ -269,6 +269,7 @@ public class Sales {
 						+ Double.parseDouble(txtSausage.getText()) * 7.0;
 				double deliveryCost = Double.parseDouble(txtDistance.getText()) * 0.8;
 				double grandTotal = totalPrice + deliveryCost;
+				totalSales = grandTotal;
 
 				txtTotalPrice.setText(String.format("RM %.2f", totalPrice));
 				txtDeliveryCost.setText(String.format("RM %.2f", deliveryCost));
@@ -426,11 +427,9 @@ public class Sales {
 		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel.setBounds(435, 10, 60, 60);
 		panel.add(lblNewLabel);
-
-		grandTotal = txtGrandTotal.getText();
 	}
 
-	public static String getGrandTotal() {
-		return grandTotal;
+	public static double getTotalSales() {
+		return totalSales;
 	}
 }
