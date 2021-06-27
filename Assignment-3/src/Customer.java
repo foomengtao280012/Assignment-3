@@ -228,8 +228,9 @@ public class Customer {
 		JTextArea txtrWelcomeTo = new JTextArea();
 		txtrWelcomeTo.setForeground(new Color(0, 0, 0));
 		txtrWelcomeTo.setText(
-				"Welcome to <dynamic>! \r\nThe newest grocery store in Klang!\r\nhe cheapest price you can find in town!\r\nYou can find everything you'll ever need here!\r\nContact us at <dynamic> now!\r\nOpens at "
-						+ CompanyBackground.getBusinessHours() + " everyday!");
+				"Welcome to " + CompanyBackground.getStoreName() + "! \r\nThe newest grocery store in Klang!\r\nhe cheapest price you can find in town!\r\nYou can find everything you'll ever need here!\r\nContact us at "
+						+ CompanyBackground.getPhoneNo() + " now!\r\nOpens at " + CompanyBackground.getBusinessHours()
+						+ " everyday!");
 		txtrWelcomeTo.setFont(new Font("Roboto", Font.BOLD, 22));
 		txtrWelcomeTo.setBackground(new Color(187, 134, 252));
 		txtrWelcomeTo.setBounds(10, 10, 660, 166);
@@ -277,7 +278,7 @@ public class Customer {
 		btnRegister.setBackground(new Color(187, 134, 252));
 		btnRegister.setBounds(200, 20, 140, 45);
 		panel_3.add(btnRegister);
-		
+
 		JLabel lblNewLabel_2 = new JLabel("\r\n");
 		lblNewLabel_2.setIcon(new ImageIcon(Customer.class.getResource("/Image/grocery-store-2540521-2125065.png")));
 		lblNewLabel_2.setBounds(309, 25, 60, 60);
