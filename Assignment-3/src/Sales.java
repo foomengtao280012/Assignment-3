@@ -431,4 +431,5 @@ public class Sales extends JFrame{
 	public static double getTotalSales() { //encapsulation
 		return totalSales;
 	}
+	
 }

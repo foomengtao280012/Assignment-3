@@ -285,4 +285,5 @@ public class CompanyBackground extends JFrame {
 	public static String getBusinessHours() {//encapsulation
 		return businessHours;
 	}
+	
 }

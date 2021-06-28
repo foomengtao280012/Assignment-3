@@ -311,4 +311,5 @@ public class Customer extends JFrame{
 		lblNewLabel_2.setBounds(309, 25, 60, 60);
 		panel.add(lblNewLabel_2);
 	}
+	
 }

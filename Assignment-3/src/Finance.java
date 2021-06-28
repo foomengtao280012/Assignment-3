@@ -333,4 +333,5 @@ public class Finance extends JFrame{
 		lblIcon.setBounds(390, 25, 60, 60);
 		panel.add(lblIcon);
 	}
+	
 }

@@ -435,4 +435,5 @@ public class Employee extends JFrame{
 	public static JTable getTable() {//encapsulation & overriding
 		return table;
 	}
+	
 }

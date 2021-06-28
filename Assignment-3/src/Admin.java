@@ -172,4 +172,5 @@ public class Admin extends JFrame{
 		Admin.setBounds(100, 100, 1179, 747);
 		Admin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+	
 }
