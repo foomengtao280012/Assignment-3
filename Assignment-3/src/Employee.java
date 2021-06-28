@@ -28,7 +28,7 @@ import javax.swing.border.MatteBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.ImageIcon;
 
-public class Employee {
+public class Employee extends JFrame{
 
 	protected JFrame Employee;
 	private JTextField txtEmployeeID;
@@ -275,7 +275,7 @@ public class Employee {
 		btnUpload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					File file = new File("C:\\Users\\user\\eclipse-workspace\\Assignment-3\\src\\Employee.txt");
+					File file = new File("C:\\Users\\user\\git\\Assignment-3\\Assignment-3\\src\\txtOutput\\Employee.txt");
 					if (!file.exists()) {
 						file.createNewFile();
 					}
@@ -290,7 +290,7 @@ public class Employee {
 					}
 					bw.close();
 					fw.close();
-					JOptionPane.showMessageDialog(null, "Data Exported");
+					JOptionPane.showMessageDialog(null, "Employee Data Exported");
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}
@@ -432,7 +432,7 @@ public class Employee {
 		panel.add(lblNewLabel);
 	}
 
-	public static JTable getTable() {
+	public static JTable getTable() {//encapsulation & overriding
 		return table;
 	}
 }

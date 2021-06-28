@@ -17,7 +17,7 @@ import javax.swing.border.MatteBorder;
 import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
 
-public class Admin {
+public class Admin extends JFrame{
 
 	protected JFrame Admin;
 	private JTextField UsernameTextField;

@@ -26,7 +26,7 @@ import javax.swing.border.MatteBorder;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.ImageIcon;
 
-public class Inventory {
+public class Inventory extends JFrame{
 
 	protected JFrame Inventory;
 	private static JTable table;
@@ -226,7 +226,7 @@ public class Inventory {
 		btnUpload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					File file = new File("C:\\Users\\user\\eclipse-workspace\\Assignment-3\\src\\Inventory.txt");
+					File file = new File("C:\\Users\\user\\git\\Assignment-3\\Assignment-3\\src\\txtOutput\\Inventory.txt");
 					if (!file.exists()) {
 						file.createNewFile();
 					}
@@ -241,7 +241,7 @@ public class Inventory {
 					}
 					bw.close();
 					fw.close();
-					JOptionPane.showMessageDialog(null, "Data Exported");
+					JOptionPane.showMessageDialog(null, "Inventory Data Exported");
 				} catch (Exception ex) {
 					ex.printStackTrace();
 				}
@@ -359,7 +359,7 @@ public class Inventory {
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Inventory = new JFrame();
-				if (JOptionPane.showConfirmDialog(Inventory, "Confirm if you want to exit", "Employee Management",
+				if (JOptionPane.showConfirmDialog(Inventory, "Confirm if you want to exit", "Inventory Management",
 						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
 					System.exit(0);
 
@@ -372,13 +372,13 @@ public class Inventory {
 		btnExit.setBounds(897, 29, 120, 45);
 		panel_3.add(btnExit);
 
-		JLabel lblNewLabel = new JLabel("New label");
+		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(Inventory.class.getResource("/Image/dribbble_shot-removebg-preview.png")));
 		lblNewLabel.setBounds(300, 25, 60, 60);
 		panel.add(lblNewLabel);
 	}
 
-	public static JTable getTable() {
+	public static JTable getTable() {//encapsulation & overriding
 		return table;
 	}
 }

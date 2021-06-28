@@ -4,6 +4,10 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,7 +22,7 @@ import javax.swing.JTextArea;
 import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 
-public class CompanyBackground {
+public class CompanyBackground extends JFrame {
 
 	protected JFrame Company;
 	private JTextField txtStoreName;
@@ -78,7 +82,7 @@ public class CompanyBackground {
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new MatteBorder(5, 5, 5, 5, (Color) new Color(187, 134, 252)));
 		panel_1.setBackground(new Color(255, 228, 225));
-		panel_1.setBounds(40, 106, 1041, 486);
+		panel_1.setBounds(40, 106, 1041, 520);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 
@@ -157,12 +161,45 @@ public class CompanyBackground {
 		txtrAddress.setText("87, Jalan Meru 12,\r\nTaman Gembira,\r\n41050 Klang, Selangor.");
 		txtrAddress.setBounds(490, 295, 200, 70);
 		panel_1.add(txtrAddress);
+		
+		JButton btnSave = new JButton("SAVE");
+		btnSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					File file = new File("C:\\Users\\user\\git\\Assignment-3\\Assignment-3\\src\\txtOutput\\CompanyBackground.txt");
+					if (!file.exists()) {
+						file.createNewFile();
+					}
+					FileWriter fw = new FileWriter(file.getAbsoluteFile());
+					BufferedWriter bw = new BufferedWriter(fw);
+
+					bw.write(storeName + "  ");
+					bw.write(phoneNo + "  ");
+					bw.write(address + "  ");
+					bw.write(businessHours + "  ");
+						
+					bw.write("\n\t\n");
+					
+					bw.close();
+					fw.close();
+					JOptionPane.showMessageDialog(null, "Data Exported");
+				} catch (Exception ex) {
+					ex.printStackTrace();
+				}
+			}
+		});
+		btnSave.setForeground(Color.BLACK);
+		btnSave.setFont(new Font("Roboto", Font.PLAIN, 24));
+		btnSave.setBackground(new Color(187, 134, 252));
+		btnSave.setBounds(430, 450, 120, 45);
+		panel_1.add(btnSave);
 
 		JButton btnBack = new JButton("BACK");
 		btnBack.setBounds(20, 25, 100, 45);
 		panel.add(btnBack);
 		btnBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+
+	public void actionPerformed(ActionEvent e) {
 				new Admin().Admin.setVisible(true);
 				Company.dispose();
 			}
@@ -232,20 +269,20 @@ public class CompanyBackground {
 		address = txtrAddress.getText();
 		businessHours = txtBusinessHours.getText();
 	}
-	
-	public static String getStoreName() {
+
+	public static String getStoreName() {//encapsulation
 		return storeName;
 	}
-	
-	public static String getPhoneNo() {
+
+	public static String getPhoneNo() {//encapsulation
 		return phoneNo;
 	}
-	
-	public static String getAddress() {
+
+	public static String getAddress() {//encapsulation
 		return address;
 	}
-	
-	public static String getBusinessHours() {
+
+	public static String getBusinessHours() {//encapsulation
 		return businessHours;
 	}
 }

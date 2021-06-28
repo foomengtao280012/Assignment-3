@@ -13,7 +13,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
 import javax.swing.ImageIcon;
 
-public class Login {
+public class Login extends JFrame{
 
 	protected JFrame frame;
 

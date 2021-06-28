@@ -6,11 +6,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -21,7 +26,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.ImageIcon;
 
-public class Customer {
+public class Customer extends JFrame{
 
 	protected JFrame Customer;
 	private JTextField txtName;
@@ -271,6 +276,28 @@ public class Customer {
 			public void actionPerformed(ActionEvent e) {
 				new Sales().Sales.setVisible(true);
 				Customer.dispose();
+				try {
+					File file = new File("C:\\Users\\user\\git\\Assignment-3\\Assignment-3\\src\\txtOutput\\Customer.txt");
+					if (!file.exists()) {
+						file.createNewFile();
+					}
+					FileWriter fw = new FileWriter(file.getAbsoluteFile());
+					BufferedWriter bw = new BufferedWriter(fw);
+
+					bw.write(txtName.getText() + "  ");
+					bw.write(txtAge.getText() + "  ");
+					bw.write(GendercomboBox.getSelectedItem() + "  ");
+					bw.write(txtPhoneNo.getText() + "  ");
+					bw.write(txtAddress.getText() + "  ");
+						
+					bw.write("\n\t\n");
+					
+					bw.close();
+					fw.close();
+					JOptionPane.showMessageDialog(null, "Customer Data Exported");
+				} catch (Exception ex) {
+					ex.printStackTrace();
+				}
 			}
 		});
 		btnRegister.setForeground(Color.BLACK);

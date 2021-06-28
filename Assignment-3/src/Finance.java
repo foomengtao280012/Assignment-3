@@ -21,7 +21,7 @@ import javax.swing.border.MatteBorder;
 import javax.swing.JTextArea;
 import javax.swing.ImageIcon;
 
-public class Finance {
+public class Finance extends JFrame{
 
 	protected JFrame Finance;
 	private JTextField txtSales;

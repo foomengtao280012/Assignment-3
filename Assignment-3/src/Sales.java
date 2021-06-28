@@ -20,7 +20,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.MatteBorder;
 import javax.swing.ImageIcon;
 
-public class Sales {
+public class Sales extends JFrame{
 
 	protected JFrame Sales;
 	private JTextField txtFrozenPizza;
@@ -281,9 +281,8 @@ public class Sales {
 				SimpleDateFormat tDate = new SimpleDateFormat("dd:MMM:yyyy");
 				tDate.format(timer.getTime());
 				// =========================================================================
-				Receipt.setText("====================-Receipt====================" + "\nGrocery Store"
-						+ "\nPhone No.\t: 03-32917028" + "\nAddress\t: 24, Jalan Meru 8," + "\n\tTaman Meru,"
-						+ "\n\t41050 Klang, Selangor"
+				Receipt.setText("====================-Receipt====================\n" + CompanyBackground.getStoreName()
+						+ "\nPhone No.\t: " + CompanyBackground.getPhoneNo() + "\nAddress\t: " + CompanyBackground.getAddress()
 						+ "\n=========================================================================\t"
 						+ "\nFrozen Pizza\t\t\t: RM12.00 * " + txtFrozenPizza.getText()
 						+ "\nFish Fillet\t\t\t: RM4.00 * " + txtFishFillet.getText() + "\nSausage\t\t\t: RM7.00 * "
@@ -422,14 +421,14 @@ public class Sales {
 		lblSales_1.setBounds(505, 10, 121, 43);
 		panel.add(lblSales_1);
 		
-		JLabel lblNewLabel = new JLabel("New label");
+		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(Sales.class.getResource("/Image/Sales.png")));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel.setBounds(435, 10, 60, 60);
 		panel.add(lblNewLabel);
 	}
 
-	public static double getTotalSales() {
+	public static double getTotalSales() { //encapsulation
 		return totalSales;
 	}
 }
